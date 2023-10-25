@@ -57,7 +57,7 @@ public class BoundaryPrendreEtal {
 			msg2.append("Le vendeur ");
 			msg2.append(nomVendeur);
 			msg2.append(" s'est installé à l'étal n° ");
-			msg2.append(numeroEtal);
+			msg2.append(numeroEtal+1);
 			System.out.println(msg2.toString());
 		}
 	}
