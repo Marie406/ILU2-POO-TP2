@@ -20,7 +20,7 @@ public class BoundaryAfficherMarche {
 			message.append(" vous trouverez au marché :\n");
 			int i =0;
 			while (i<infosMarche.length) {
-				message.append(String.format("- %s qui vend %s %s", infosMarche[i], infosMarche[i+1], infosMarche[i+2]));
+				message.append(String.format("- %s qui vend %s %s%n", infosMarche[i], infosMarche[i+1], infosMarche[i+2]));
 				i=i+3;
 			}
 			System.out.println(message.toString());
