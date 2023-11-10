@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import personnages.Chef;
+import personnages.Gaulois;
 import villagegaulois.Village;
 
 class ControlLibererEtalTest {
@@ -25,18 +26,30 @@ class ControlLibererEtalTest {
 	
 	@Test
 	void testControlLibererEtal() {
-		initTest();
 		assertNotNull(controlLibererEtal);
 	}
-
+	
 	@Test
 	void testIsVendeur() {
-		fail("Not yet implemented");
+		Gaulois bonemine = new Gaulois("Bonemine", 6);
+		village.ajouterHabitant(bonemine);
+		village.installerVendeur(bonemine, "fleurs", 10);
+		assertTrue(controlLibererEtal.isVendeur("Bonemine"));
+		assertFalse(controlLibererEtal.isVendeur("Obélix"));
 	}
 
 	@Test
 	void testLibererEtal() {
-		fail("Not yet implemented");
+		Gaulois bonemine = new Gaulois("Bonemine", 6);
+		village.ajouterHabitant(bonemine);
+		village.installerVendeur(bonemine, "fleurs", 10);
+		String[] mesDonneesSup = controlEtalVendeur.trouverEtalVendeur("Bonemine").etatEtal();
+		String[] mesDonnees = controlLibererEtal.libererEtal("Bonemine"); // bien le mettre apres la ligne .etatEtal pour pas que etalOccupe vaille false
+		for(int i=1; i<mesDonnees.length; i++) {
+			assertEquals(mesDonnees[i],mesDonneesSup[i]);
+		}
+		
+		assertFalse(controlEtalVendeur.trouverEtalVendeur("Bonemine").isEtalOccupe());
 	}
 
 }

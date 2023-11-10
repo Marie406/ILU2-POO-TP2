@@ -39,9 +39,7 @@ class ControlTrouverEtalVendeurTest {
 		Gaulois bonemine = new Gaulois("Bonemine", 6);
 		village.ajouterHabitant(bonemine);
 		village.installerVendeur(bonemine, "fleurs", 10);
-		//for(int i = 0; i<4)
-		//assertEqual(control.trouverEtalVendeur("Bonemine")[i], );
-		fail("not implemented yet");
+		assert(village.rechercherEtal(bonemine)==control.trouverEtalVendeur("Bonemine"));
 	}
 
 }
